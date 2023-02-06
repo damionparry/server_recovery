@@ -1,0 +1,8 @@
+---
+
+ - name: playbook to aggregate some mongodb docs and inject them into elasticsearch
+   gather_facts: false
+   hosts:
+     - localhost
+   roles:
+     - aggregate

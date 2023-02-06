@@ -1,0 +1,2 @@
+{"create": { "ansible_fact": {"ansible_hostname": "localhost", "ansible_address": "127.0.0.1"}}}
+{"create": { "ansible_fact": {"ansible_hostname": "grafana", "ansible_address": "192.168.122.146"}}}

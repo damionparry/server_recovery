@@ -1,0 +1,7 @@
+all:
+  hosts:
+    podman.example.com:
+    hub1.example.com:
+    controller2.example.com:
+    dp-lab.example.com:
+    mongodb.example.com:

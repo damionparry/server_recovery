@@ -1,0 +1,30 @@
+---
+
+ - name: aggregate the documents to create elasticsearch index
+   community.mongodb.mongodb_shell:
+     db: "{{ mongodb_database }}"
+     eval: "{{ lookup('ansible.builtin.file','aggregate_sort.js') }}"
+     debug: true
+     transform: "raw"
+   register: r_mongodb_aggregate
+
+ - name: display the results
+   debug:
+     var: r_mongodb_aggregate.transformed_output
+     verbosity: 1
+
+ - name: parse the results into separate documents
+   set_fact:
+     f_mongodb_docs: "{{ r_mongodb_aggregate.transformed_output | regex_replace('^{','[{') | regex_replace('}\n{','},{') | regex_replace('}$','}]') | from_json }}"
+
+ - name: display the documents
+   debug:
+     var: f_mongodb_docs 
+
+ - name: insert the aggregate into elasticsearch
+   ansible.builtin.uri:
+     url: "http://localhost:9200/{{ mongodb_database }}/_doc"
+     method: "POST"
+     body: "{{ item }}"
+     body_format: "json"
+   loop: "{{ f_mongodb_docs }}"

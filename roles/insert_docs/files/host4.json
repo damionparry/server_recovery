@@ -1,0 +1,30 @@
+{
+    "ansible_facts": {
+        "ansible_hostname": "test3",
+        "ansible_all_ipv4_addresses": [
+            "192.168.122.3",
+            "192.168.124.157",
+            "192.168.135.98"
+        ],
+        "ansible_all_ipv6_addresses": [
+            "fe80::d2ed:17ac:69fb:db65"
+        ],
+        "ansible_apparmor": {
+            "status": "disabled"
+        },
+        "ansible_architecture": "x86_64",
+        "ansible_bios_date": "01/01/2011",
+        "ansible_bios_vendor": "Seabios",
+        "ansible_bios_version": "0.5.1",
+        "ansible_board_asset_tag": "NA",
+        "ansible_board_name": "NA",
+        "ansible_board_serial": "NA",
+        "ansible_board_vendor": "NA",
+        "ansible_board_version": "NA",
+        "ansible_brlab": {
+            "device": "brlab",
+            "active": false
+        },
+	"ansible_fruits": [ "avocado", "banana", "clementine", "peach", "grape"]
+    }
+}
